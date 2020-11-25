@@ -2,13 +2,15 @@ const app = new Vue({
     el: '#app',
     data: {
       movieName: '',
-      array: [],
+      arrayMovie: [],
+      arraySeries: []
     },
     created(){
      
     },
     methods: {
 
+      
       // filtra film
       genera(){
         console.log(this.movieName);
@@ -26,7 +28,7 @@ const app = new Vue({
         .then(function (response) {
           // handle success
           console.log(response.data.results);
-          self.array = response.data.results;
+          self.arrayMovie = response.data.results;
         })
         .catch(function (error) {
           // handle error
@@ -51,7 +53,10 @@ const app = new Vue({
         .then(function (response) {
           // handle success
           console.log(response.data.results);
-          self.array = response.data.results;
+          // self.arrayMovie = self.arrayMovie.concat(response.data.results);
+          // self.arraySeries = response.data.results;
+          self.arrayMovie = response.data.results;
+
         })
         .catch(function (error) {
           // handle error
@@ -60,6 +65,11 @@ const app = new Vue({
         this.movieName = '';
 
       }, //-->end filtra
+
+      filterMovies(){
+        this.genera();
+        this.filtra();
+      },
 
         // *****************************
         // convert votes in stars

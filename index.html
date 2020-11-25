@@ -16,14 +16,14 @@
     <div class="general" id="app">
             <!-- INPUT CONTAINER -->
         <div class="input-container">
-            <input @keyup.enter="genera"  v-model="movieName" type="text" placeholder="inserisci titolo">
-            <button @click="genera">
+            <input @keyup.enter="filtra"  v-model="movieName" type="text" placeholder="inserisci titolo">
+            <button @click="filterMovies">
                 clicca qui
             </button>
         </div>
             <!-- PRINT ON SCREEN ELEMENT -->
         <div class="container-movie-data"
-             v-for="film in array"
+             v-for="film in arrayMovie"
         >
            <div class="title">
             Titolo : {{film.title}} {{film.name}}
@@ -47,6 +47,8 @@
            </div>
 
         </div>
+
+
     </div>
 
     <!-- axios -->
