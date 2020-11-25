@@ -3,7 +3,7 @@ const app = new Vue({
     data: {
       movieName: '',
       arrayMovie: [],
-      arraySeries: []
+      
     },
     created(){
      
@@ -34,7 +34,7 @@ const app = new Vue({
           // handle error
           console.log(error);
         })
-        this.movieName = '';
+        // this.movieName = '';
       }, //--> end genera()
 
       filtra(){
@@ -53,9 +53,8 @@ const app = new Vue({
         .then(function (response) {
           // handle success
           console.log(response.data.results);
-          // self.arrayMovie = self.arrayMovie.concat(response.data.results);
-          // self.arraySeries = response.data.results;
-          self.arrayMovie = response.data.results;
+          self.arrayMovie = self.arrayMovie.concat(response.data.results);
+          
 
         })
         .catch(function (error) {
@@ -74,7 +73,7 @@ const app = new Vue({
         // *****************************
         // convert votes in stars
       convertStar(vote_average){
-        return Math.round(vote_average / 2);
+        return Math.ceil(vote_average / 2);
       } //--> end convertStar()
 
 

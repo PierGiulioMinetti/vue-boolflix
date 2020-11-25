@@ -16,7 +16,7 @@
     <div class="general" id="app">
             <!-- INPUT CONTAINER -->
         <div class="input-container">
-            <input @keyup.enter="filtra"  v-model="movieName" type="text" placeholder="inserisci titolo">
+            <input @keyup.enter="filterMovies"  v-model="movieName" type="text" placeholder="inserisci titolo">
             <button @click="filterMovies">
                 clicca qui
             </button>
@@ -31,9 +31,17 @@
            <div class="original-title">
             Titolo Originale : {{film.original_title}}
            </div>
-           <div class="language">
+           <div v-if="film.original_language === 'en' " class="language">
+            Lingua : <img src="./en.png" alt="eng">
+           </div>
+           <div v-else-if="film.original_language === 'it' " class="language">
+            Lingua : <img src="./it.png" alt="ita">
+           </div>
+           <div v-else class="language">
             Lingua : {{film.original_language}}
            </div>
+           
+           
            <div class="rating">
                 Voto medio: 
                 <i v-for="star in convertStar(film.vote_average) " 
