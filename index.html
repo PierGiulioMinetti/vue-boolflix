@@ -39,6 +39,11 @@
                 <i v-for="star in convertStar(film.vote_average) " 
                 class="fas fa-star">          
                 </i>
+                <i v-for="star in 5 - convertStar(film.vote_average)"
+                   class="far fa-star"
+                >
+                    
+                </i>
            </div>
 
         </div>
