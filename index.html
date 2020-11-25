@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- fontAwesome -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.css'/>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- GENERAL CONTAINER -->
+    <div class="general" id="app">
+            <!-- INPUT CONTAINER -->
+        <div class="input-container">
+            <input @keyup.enter="genera" v-model="movieName" type="text" placeholder="inserisci titolo">
+            <button @click="genera">
+                clicca qui
+            </button>
+        </div>
+            <!-- PRINT ON SCREEN ELEMENT -->
+        <div class="container-movie-data"
+             v-for="film in array"
+        >
+           <div class="title">
+            Titolo : {{film.original_title}}
+           </div>
+           <div class="original-title">
+            Titolo originale : {{film.original_title}}
+           </div>
+           <div class="language">
+            Lingua : {{film.original_language}}
+           </div>
+           <div class="rating">
+            Voto : {{film.popularity}}
+           </div>
+
+        </div>
+    </div>
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- js -->
+    <script src="./js/main.js"></script>
+</body>
+</html>
