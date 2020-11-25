@@ -8,6 +8,7 @@ const app = new Vue({
      
     },
     methods: {
+
       // filtra film
       genera(){
         console.log(this.movieName);
@@ -32,6 +33,12 @@ const app = new Vue({
           console.log(error);
         })
         this.movieName = '';
-      }
-    }
-  })
+      }, //--> end genera()
+      convertStar(vote_average){
+        return Math.round(vote_average / 2);
+      } //--> end convertStar()
+
+
+    } //--> end methods
+
+  }) //--> end vue

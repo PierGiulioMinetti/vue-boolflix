@@ -35,7 +35,10 @@
             Lingua : {{film.original_language}}
            </div>
            <div class="rating">
-            Voto : {{film.popularity}}
+                Voto medio: 
+                <i v-for="star in convertStar(film.vote_average) " 
+                class="fas fa-star">          
+                </i>
            </div>
 
         </div>
