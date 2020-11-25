@@ -16,7 +16,7 @@
     <div class="general" id="app">
             <!-- INPUT CONTAINER -->
         <div class="input-container">
-            <input @keyup.enter="genera" v-model="movieName" type="text" placeholder="inserisci titolo">
+            <input @keyup.enter="genera"  v-model="movieName" type="text" placeholder="inserisci titolo">
             <button @click="genera">
                 clicca qui
             </button>
@@ -26,10 +26,10 @@
              v-for="film in array"
         >
            <div class="title">
-            Titolo : {{film.original_title}}
+            Titolo : {{film.title}} {{film.name}}
            </div>
            <div class="original-title">
-            Titolo originale : {{film.original_title}}
+            Titolo Originale : {{film.original_title}}
            </div>
            <div class="language">
             Lingua : {{film.original_language}}
