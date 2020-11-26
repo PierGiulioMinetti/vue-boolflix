@@ -38,7 +38,12 @@
                 Trama : {{film.overview}}
             </div>
                <div class="title">
-                    Titolo : {{film.title}} {{film.name}}
+                   <div v-if="film.title">
+                        Titolo : {{film.title}}
+                   </div>
+                    <div v-if="film.name">
+                        Titolo :  {{film.name}}
+                    </div>
                </div>
                <div class="original-title">
                     Titolo Originale : {{film.original_title}}
