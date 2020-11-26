@@ -10,6 +10,7 @@ body{
     background-color: black;
 }
 
+
 /* UTILITY */
 .d-flex{
     display: flex;
@@ -43,10 +44,13 @@ body{
         justify-content: center;
         flex-wrap: wrap;
     }
+    .input-container>button{
+        margin-top: 10px;
+    }
 }
 
 .input-container>input{
-    width: 200px;
+    width: 300px;
     height: 30px;
     padding: 0 10px;
     border-radius: 5px;
@@ -117,6 +121,7 @@ body{
 .language,
 .rating {
     margin: 5px 0;
+    text-align: center;
 }
 
 
@@ -125,5 +130,11 @@ body{
 }
 
 .w342{
-    max-width: 342px;
+    width: 342px;
+    height: 470px;
+}
+
+.no-pic{
+    width: 342px;
+    height: 500px;
 }
