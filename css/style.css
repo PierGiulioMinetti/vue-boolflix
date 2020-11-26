@@ -5,13 +5,44 @@
     box-sizing: border-box;
 }
 
-.general{
-   
+/* UTILITY */
+.d-flex{
+    display: flex;
+}
+
+/* EDITING SECTIONS */
+
+/* HEADER */
+.header{
+    justify-content: flex-start;
+    margin: 30px 90px 20px;
+}
+
+.input-container>input{
+    width: 200px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 5px;
+    
+}
+
+.input-container>button{
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+/* MAIN CONTENT */
+
+.main-content-container{
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .container-movie-data{
+    flex-basis: 400px;
     margin: 20px;
-    
     background-color: #d5ab091f;
     border-radius: 10px;
     padding: 20px;
@@ -19,15 +50,6 @@
     font-size: 25px;
 }
 
-.main-content-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.container-movie-data{
-    flex-basis: 400px;
-}
 
 .bandiere{
     max-width: 30px;
