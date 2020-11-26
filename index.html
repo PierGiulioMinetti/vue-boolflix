@@ -39,8 +39,18 @@
             <div class="container-movie-data"
                  v-for="film in arrayMovie"
             >
+                <!-- LAYOVER + DATA -->
                 <div class="layover">
-                    
+                    <div class="data-uscita">
+                        <div 
+                            v-if="film.release_date"    class="film-uscita">
+                        <span class="bold">Data di uscita: </span> {{film.release_date}}
+                        </div>
+                        <div 
+                            v-if="film.first_air_date"    class="serie-uscita">
+                        <span class="bold">Data di uscita: </span> {{film.first_air_date}}
+                        </div>
+                    </div>
                     <div class="lingue">
                         <div 
                             v-if="film.original_language === 'en' " class="language">
@@ -57,22 +67,23 @@
                             </span> 
                             {{film.original_language}}
                         </div>
-                        <div class="original-title">
-                    
-                            <div v-if="film.original_title">
-                               <span class="bold">
-                                Titolo originale: 
-                               </span> 
-                                {{film.original_title}}
-                            </div>
-                            <div v-if="film.original_name">
-                               <span class="bold">
-                                Titolo originale: 
-                               </span> 
-                               {{film.original_name}}
-                            </div>
-                        </div>
                         
+                        
+                    </div>
+                    <div class="original-title">
+                    
+                        <div v-if="film.original_title">
+                           <span class="bold">
+                            Titolo originale: 
+                           </span> 
+                            {{film.original_title}}
+                        </div>
+                        <div v-if="film.original_name">
+                           <span class="bold">
+                            Titolo originale: 
+                           </span> 
+                           {{film.original_name}}
+                        </div>
                     </div>
                     <span v-show="film.overview !== ''" class="bold">Trama:</span> {{film.overview}}
 
