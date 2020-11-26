@@ -40,7 +40,42 @@
                  v-for="film in arrayMovie"
             >
                 <div class="layover">
-                    Trama : {{film.overview}}
+                    
+                    <div class="lingue">
+                        <div 
+                            v-if="film.original_language === 'en' " class="language">
+                          <span class="bold">Lingua:</span>  <img class="bandiere" src="./en.png"   alt="eng">
+                        </div>
+                        <div 
+                            v-else-if="film.original_language === 'it'"    class="language">
+                            <span class="bold">Lingua:</span>   <img  class="bandiere"src="./it.png"   alt="ita">
+                        </div>
+                        <div 
+                            v-else class="language">
+                            <span class="bold">
+                                Lingua:
+                            </span> 
+                            {{film.original_language}}
+                        </div>
+                        <div class="original-title">
+                    
+                            <div v-if="film.original_title">
+                               <span class="bold">
+                                Original title: 
+                               </span> 
+                                {{film.original_title}}
+                            </div>
+                            <div v-if="film.original_name">
+                               <span class="bold">
+                                Original title: 
+                               </span> 
+                               {{film.original_name}}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <span class="bold">Trama:</span> {{film.overview}}
+
                 </div>
                 <div class="poster">
                     <span v-if="film.poster_path !== null">
@@ -58,27 +93,7 @@
                         {{film.name}}
                     </div>
                 </div>
-                <div class="original-title">
-                    
-                    <div v-if="film.original_title">
-                        {{film.original_title}}
-                    </div>
-                    <div v-if="film.original_name">
-                        {{film.original_name}}
-                    </div>
-                </div>
-                <div 
-                    v-if="film.original_language === 'en' " class="language">
-                    <img class="bandiere" src="./en.png"   alt="eng">
-                </div>
-                <div 
-                    v-else-if="film.original_language === 'it'     "    class="language">
-                    <img  class="bandiere"src="./it.png"   alt="ita">
-                </div>
-                <div 
-                    v-else class="language">
-                    {{film.original_language}}
-                </div>
+                
            
                 <div class="rating">
                    <i 

@@ -55,7 +55,7 @@ body{
     padding: 0 10px;
     border-radius: 5px;
     margin-top: 20px;
-    
+
 }
 
 .input-container>button{
@@ -84,6 +84,7 @@ body{
     position: relative;
     margin-bottom: 50px;
 }
+
 .container-movie-data:hover{
     transform: scale(1.1);
     transition: transform 0.4s;
@@ -91,10 +92,9 @@ body{
 
 }
 
-
 .layover {
     width: 100%;
-    height: 80%;
+    height: 90%;
     background-color: rgba(213, 235, 230, 0.9);
     position: absolute;
     top: 0%;
@@ -116,12 +116,18 @@ body{
     cursor: pointer;
 }
 
+.bold{
+    font-weight: 800;
+}
+
 .title,
-.original-title,
-.language,
 .rating {
     margin: 5px 0;
     text-align: center;
+}
+
+.language{
+    margin: 5px 0;
 }
 
 
