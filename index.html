@@ -61,20 +61,20 @@
                     
                             <div v-if="film.original_title">
                                <span class="bold">
-                                Original title: 
+                                Titolo originale: 
                                </span> 
                                 {{film.original_title}}
                             </div>
                             <div v-if="film.original_name">
                                <span class="bold">
-                                Original title: 
+                                Titolo originale: 
                                </span> 
                                {{film.original_name}}
                             </div>
                         </div>
                         
                     </div>
-                    <span class="bold">Trama:</span> {{film.overview}}
+                    <span v-show="film.overview !== ''" class="bold">Trama:</span> {{film.overview}}
 
                 </div>
                 <div class="poster">
