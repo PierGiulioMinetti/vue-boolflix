@@ -4,6 +4,7 @@ const app = new Vue({
       movieName: '',
       arrayMovie: [],
       
+      
     },
     created(){
      
@@ -28,13 +29,15 @@ const app = new Vue({
         .then(function (response) {
           // handle success
           console.log(response.data.results);
-          self.arrayMovie = response.data.results;
+          self.arrayMovie = self.arrayMovie.concat(response.data.results);
+          
         })
         .catch(function (error) {
           // handle error
           console.log(error);
         })
         // this.movieName = '';
+        self.arrayMovie= [];
       }, //--> end genera()
 
       filtra(){

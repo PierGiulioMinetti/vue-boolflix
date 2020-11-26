@@ -14,50 +14,77 @@
 <body>
     <!-- GENERAL CONTAINER -->
     <div class="general" id="app">
+        <div class="header">
             <!-- INPUT CONTAINER -->
-        <div class="input-container">
-            <input @keyup.enter="filterMovies"  v-model="movieName" type="text" placeholder="inserisci titolo">
-            <button @click="filterMovies">
-                clicca qui
-            </button>
-        </div>
-            <!-- PRINT ON SCREEN ELEMENT -->
-        <div class="container-movie-data"
-             v-for="film in arrayMovie"
-        >
-           <div class="title">
-            Titolo : {{film.title}} {{film.name}}
-           </div>
-           <div class="original-title">
-            Titolo Originale : {{film.original_title}}
-           </div>
-           <div v-if="film.original_language === 'en' " class="language">
-            Lingua : <img src="./en.png" alt="eng">
-           </div>
-           <div v-else-if="film.original_language === 'it' " class="language">
-            Lingua : <img src="./it.png" alt="ita">
-           </div>
-           <div v-else class="language">
-            Lingua : {{film.original_language}}
-           </div>
-           
-           
-           <div class="rating">
-                Voto medio: 
-                <i v-for="star in convertStar(film.vote_average) " 
-                class="fas fa-star">          
-                </i>
-                <i v-for="star in 5 - convertStar(film.vote_average)"
-                   class="far fa-star"
+            <div class="input-container">
+                <input 
+                    @keyup.enter="filterMovies"      v-model="movieName" type="text"     placeholder="inserisci titolo"
                 >
-                    
-                </i>
-           </div>
-
+                <button 
+                    @click="filterMovies">
+                    clicca qui
+                </button>
+            </div>
         </div>
+        
+        <!-- MAIN CONTENT CONTAINER -->
+        <div class="main-content-container">
 
+                <!-- MOVIES DATA CONTAINER -->
+            <div class="container-movie-data"
+                 v-for="film in arrayMovie"
+            >
+               <div class="title">
+                    Titolo : {{film.title}} {{film.name}}
+               </div>
+               <div class="original-title">
+                    Titolo Originale : {{film.original_title}}
+               </div>
+               <div 
+                    v-if="film.original_language === 'en' " class="language">
+                    Lingua : <img class="bandiere" src="./en.png"   alt="eng">
+                </div>
+                <div 
+                    v-else-if="film.original_language === 'it'     "    class="language">
+                    Lingua : <img  class="bandiere"src="./it.png"   alt="ita">
+                </div>
+                <div 
+                    v-else class="language">
+                    Lingua : {{film.original_language}}
+                </div>
+           
+           
+                <div class="rating">
+                   Voto medio: 
+                   <i 
+                    v-for="star in convertStar(film.vote_average)     " 
+                    class="fas fa-star">          
+                    </i>
+                    <i 
+                    v-for="star in 5 - convertStar(film.vote_average)    "
+                    class="far fa-star"
+                    >
+            
+                    </i>
+                </div>
+    
+                <div class="poster">
+                    <span v-if="film.poster_path !== null">
+                        <img :src="`https://image.tmdb.org/t/p/w342/${film.poster_path}`" alt="">
+                    </span >
+                    <span v-else>
+                        <img class="w342" src="https://rettiljungle.com/wp/wp-content/uploads/2016/08/no-image-icon-21.png" alt="">
+                    </span>
+                </div>
 
-    </div>
+            </div>
+            <!-- END MOVIES DATA CONTAINER -->
+        
+        </div>
+    <!-- MAIN CONTENT CONTAINER END -->
+
+    </div> 
+    <!-- END GENERAL CONTAINER -->
 
     <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
