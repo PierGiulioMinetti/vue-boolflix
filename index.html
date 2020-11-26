@@ -43,15 +43,21 @@
                 Trama : {{film.overview}}
             </div>
                <div class="title">
-                   <div v-if="film.title">
+                    <div v-if="film.title">
                         Titolo : {{film.title}}
-                   </div>
+                    </div>
                     <div v-if="film.name">
                         Titolo :  {{film.name}}
                     </div>
                </div>
                <div class="original-title">
-                    Titolo Originale : {{film.original_title}}
+                    
+                    <div v-if="film.original_title">
+                        Titolo Originale : {{film.original_title}}
+                    </div>
+                    <div v-if="film.original_name">
+                        Titolo Originale : {{film.original_name}}
+                    </div>
                </div>
                <div 
                     v-if="film.original_language === 'en' " class="language">

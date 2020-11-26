@@ -112,6 +112,13 @@ body{
     cursor: pointer;
 }
 
+.title,
+.original-title,
+.language,
+.rating {
+    margin: 5px 0;
+}
+
 
 .bandiere{
     max-width: 30px;
