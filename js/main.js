@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
       movieName: '',
       arrayMovie: [],
+      arraySeries: [],
       selectMovies: '',
       SelectSeries: '',
       movieGenre : [
@@ -109,7 +110,7 @@ const app = new Vue({
         .then(function (response) {
           // handle success
           console.log(response.data.results);
-          self.arrayMovie = self.arrayMovie.concat(response.data.results);
+          self.arrayMovie = response.data.results;
           
         })
         .catch(function (error) {
@@ -137,7 +138,7 @@ const app = new Vue({
         .then(function (response) {
           // handle success
           console.log(response.data.results);
-          self.arrayMovie = self.arrayMovie.concat(response.data.results);
+          self.arraySeries = response.data.results;
           
 
         })
@@ -146,7 +147,7 @@ const app = new Vue({
           console.log(error);
         })
         this.movieName = '';
-
+        self.arrayMovie= [];
       }, //-->end filtra
 
       // CALL MOVIES AND SERIES FROM API
@@ -160,14 +161,6 @@ const app = new Vue({
       // // SELECT MOVIES
       filtraFilm(){
         const self = this;
-        /**
-         * axios
-         */
-        
-      
-          // handle success
-          // self.arrayMovie= [];
-
           
           if (self.arrayMovie.length > 0 ){
             self.arrayMovie = self.arrayMovie.filter(element=> element.genre_ids.includes(self.selectMovies))

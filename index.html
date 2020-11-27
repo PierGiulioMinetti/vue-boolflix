@@ -197,6 +197,94 @@
     
 
             </div>
+
+            <!-- CONTAINER SERIES -->
+
+            <div class="container-movie-data"
+                 v-for="series in arraySeries"
+            >
+                <!-- LAYOVER + DATA -->
+                <div class="layover">
+                    <div class="data-uscita">
+                        <div 
+                            v-if="series.release_date"    class="series-uscita">
+                        <span class="bold">Data di uscita: </span> {{series.release_date}}
+                        </div>
+                        <div 
+                            v-if="series.first_air_date"    class="serie-uscita">
+                        <span class="bold">Data di uscita: </span> {{series.first_air_date}}
+                        </div>
+                    </div>
+                    <div class="lingue">
+                        <div 
+                            v-if="series.original_language === 'en' " class="language">
+                          <span class="bold">Lingua:</span>  <img class="bandiere" src="./en.png"   alt="eng">
+                        </div>
+                        <div 
+                            v-else-if="series.original_language === 'it'"    class="language">
+                            <span class="bold">Lingua:</span>   <img  class="bandiere"src="./it.png"   alt="ita">
+                        </div>
+                        <div 
+                            v-else class="language">
+                            <span class="bold">
+                                Lingua:
+                            </span> 
+                            {{series.original_language}}
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="original-title">
+                    
+                        <div v-if="series.original_title">
+                           <span class="bold">
+                            Titolo originale: 
+                           </span> 
+                            {{series.original_title}}
+                        </div>
+                        <div v-if="series.original_name">
+                           <span class="bold">
+                            Titolo originale: 
+                           </span> 
+                           {{series.original_name}}
+                        </div>
+                    </div>
+                    <span v-show="series.overview !== ''" class="bold">Trama:</span> {{series.overview}}
+
+                </div>
+                <div class="poster">
+                    <span v-if="series.poster_path !== null">
+                        <img class="w342" :src="`https://image.tmdb.org/t/p/w342/${series.poster_path}`" alt="">
+                    </span >
+                    <span v-else>
+                    <img class="w342" src="https://rettiljungle.com/wp/wp-content/uploads/2016/08/no-image-icon-21.png" alt="">
+                    </span>
+                </div>
+                <div class="title">
+                    <div v-if="series.title">
+                    {{series.title}}
+                    </div>
+                    <div v-if="series.name">
+                        {{series.name}}
+                    </div>
+                </div>
+                
+           
+                <div class="rating">
+                   <i 
+                    v-for="star in convertStar(series.vote_average)     " 
+                    class="fas fa-star">          
+                    </i>
+                    <i 
+                    v-for="star in 5 - convertStar(series.vote_average)    "
+                    class="far fa-star"
+                    >
+                    </i>
+                </div>
+    
+
+            </div>
+
             <!-- END MOVIES DATA CONTAINER -->
         
         </div>
