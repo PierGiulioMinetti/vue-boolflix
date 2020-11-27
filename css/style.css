@@ -15,6 +15,7 @@ input[type=text]:focus{
     box-shadow: 1px 1px 3px 3px#df0b0bc9;
  }
 
+
 /* UTILITY */
 .d-flex{
     display: flex;
@@ -27,6 +28,11 @@ input[type=text]:focus{
 .logo-header{
     margin-left: 50px;
     margin-right: 20px;
+}
+
+.select-container{
+    height: 30px;
+    color: white;
 }
 
 .header{
