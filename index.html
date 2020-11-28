@@ -32,7 +32,7 @@
             </div>
             <!-- select -->
             <div class="select-container">
-                Select movies
+                Seleziona genere film
                 <select 
                     v-model="selectMovies"
                     @change="filtraFilm"
@@ -51,14 +51,17 @@
                    </option>
                    <!-- select series -->
                 </select>
-                Select series
+                Seleziona genere serie
                 <select 
                     v-model="SelectSeries"
                     @change="filtraSerie"
                     name="select series" 
                     id="select-series"
                 >
-
+                  <option 
+                    value="all">
+                    All
+                  </option>
                     
                     <option 
                         v-for="option in seriesGenre"

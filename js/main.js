@@ -5,6 +5,7 @@ const app = new Vue({
       arrayMovie: [],
       filteredMovies: [],
       arraySeries: [],
+      filteredSeries: [],
       selectMovies: '',
       SelectSeries: '',
       movieGenre : [
@@ -207,6 +208,7 @@ const app = new Vue({
           // handle success
           console.log(response.data.results);
           self.arraySeries = response.data.results;
+          self.filteredSeries = response.data.results;
           
 
         })
@@ -235,11 +237,11 @@ const app = new Vue({
 
           if (this.selectMovies !== 'all' ){
             this.arrayMovie = this.arrayMovie.filter((element)=> {
-              return element.genre_ids.includes(this.SelectSeries)
+              return element.genre_ids.includes(this.selectMovies)
           });
         }
              else {
-              return this.arrayMovie = this.filteredMovies;
+               this.arrayMovie = this.filteredMovies;
              }
           // MODIFICARE QUI *********************
           
@@ -252,13 +254,15 @@ const app = new Vue({
       
       // SELECT SERIES
       filtraSerie(){
-        const self = this;
+        
           
-          if (self.arraySeries.length > 0 ){
-            self.arraySeries = self.arraySeries.filter(element=> element.genre_ids.includes(self.SelectSeries))
-          } 
+          if (this.SelectSeries !== 'all'  ){
+            this.arraySeries = this.arraySeries.filter(element=> element.genre_ids.includes(this.SelectSeries))
+          } else {
+            this.arraySeries = this.filteredSeries;
+          }
           
-         console.log(self.arraySeries);
+         
       },
 
 
