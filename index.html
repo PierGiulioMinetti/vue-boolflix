@@ -40,7 +40,11 @@
                     id="select-movies"
                     > 
                     <option 
-                        v-for="option in movieGenre"
+                        value="all">
+                        All
+                    </option>
+                    <option 
+                            v-for="option in movieGenre"
                             :value="option.id"
                         >
                             {{option.name}}
@@ -55,6 +59,7 @@
                     id="select-series"
                 >
 
+                    
                     <option 
                         v-for="option in seriesGenre"
                             :value="option.id"
@@ -75,6 +80,7 @@
             <div class="container-movie-data"
                  v-for="film in arrayMovie"
             >
+            FILM
                 <!-- LAYOVER + DATA -->
                 <div class="layover">
                     <div class="data-uscita">
@@ -162,6 +168,7 @@
             <div class="container-movie-data"
                  v-for="series in arraySeries"
             >
+            SERIES
                 <!-- LAYOVER + DATA -->
                 <div class="layover">
                     <div class="data-uscita">

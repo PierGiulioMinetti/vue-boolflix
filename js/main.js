@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
       movieName: '',
       arrayMovie: [],
+      filteredMovies: [],
       arraySeries: [],
       selectMovies: '',
       SelectSeries: '',
@@ -177,6 +178,7 @@ const app = new Vue({
           // handle success
           console.log(response.data.results);
           self.arrayMovie = response.data.results;
+          self.filteredMovies = response.data.results;
           
         })
         .catch(function (error) {
@@ -223,21 +225,30 @@ const app = new Vue({
       },
 
 
-      // NON FUNZIONA DA QUI
       // // SELECT MOVIES
       filtraFilm(){
-        const self = this;
+
+       
+        
+        // console.log('film filtrati' + this.filteredMovies);
+          // const filteredMovies = self.arrayMovie;
+
+          if (this.selectMovies !== 'all' ){
+            this.arrayMovie = this.arrayMovie.filter((element)=> {
+              return element.genre_ids.includes(this.SelectSeries)
+          });
+        }
+             else {
+              return this.arrayMovie = this.filteredMovies;
+             }
+          // MODIFICARE QUI *********************
           
-          if (self.arrayMovie.length > 0 ){
-            self.arrayMovie = self.arrayMovie.filter(element=> element.genre_ids.includes(self.selectMovies))
-          }
           
-         console.log(self.arrayMovie);
           
          
         
         // this.movieName = '';
-      }, //--> end genera()
+        }, //--> end genera()
       
       // SELECT SERIES
       filtraSerie(){
@@ -245,7 +256,7 @@ const app = new Vue({
           
           if (self.arraySeries.length > 0 ){
             self.arraySeries = self.arraySeries.filter(element=> element.genre_ids.includes(self.SelectSeries))
-          }
+          } 
           
          console.log(self.arraySeries);
       },
