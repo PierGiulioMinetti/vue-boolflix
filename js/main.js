@@ -158,83 +158,65 @@ const app = new Vue({
      
     },
     methods: {
-
-      
       // filtra film
       genera(){
-        console.log(this.movieName);
-        const self = this;
-        /**
-         * axios
-         */
-        axios.get('https://api.themoviedb.org/3/search/movie', {
-          params: {
-            api_key: '7b9720487c48630ca9c8f0d06516ecac',
-            query: this.movieName,
-            language: 'it-IT'
-          }
-        }
-        )
-        .then(function (response) {
-          // handle success
-          console.log(response.data.results);
-          self.arrayMovie = response.data.results;
-          self.filteredMovies = response.data.results;
+            console.log(this.movieName);
+            const self = this;
           
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        })
-        // this.movieName = '';
-        self.arrayMovie= [];
+            axios.get('https://api.themoviedb.org/3/search/movie', {
+              params: {
+                  api_key: '7b9720487c48630ca9c8f0d06516ecac',
+                  query: this.movieName,
+                  language: 'it-IT'
+              }
+            })
+                  .then(function (response) {
+                    // handle success
+                    console.log(response.data.results);
+                    self.arrayMovie = response.data.results;
+                    self.filteredMovies = response.data.results;
+                  })
+                  .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                  })
+        
+                  self.arrayMovie= [];
       }, //--> end genera()
 
+      // filtra serie TV
       filtra(){
-
         const self = this;
-        /**
-         * axios
-         */
-        axios.get('https://api.themoviedb.org/3/search/tv', {
-          params: {
-            api_key: '7b9720487c48630ca9c8f0d06516ecac',
-            query: this.movieName,
-            language: 'it-IT'
-          }
-        }
-        )
-        .then(function (response) {
-          // handle success
-          console.log(response.data.results);
-          self.arraySeries = response.data.results;
-          self.filteredSeries = response.data.results;
-          
 
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        })
-        this.movieName = '';
-        self.arrayMovie= [];
-      }, //-->end filtra
+             axios.get('https://api.themoviedb.org/3/search/tv', {
+                  params: {
+                  api_key: '7b9720487c48630ca9c8f0d06516ecac',
+                  query: this.movieName,
+                  language: 'it-IT'
+                  }
+              })
+                  .then(function (response) {
+                    // handle success
+                    console.log(response.data.results);
+                    self.arraySeries = response.data.results;
+                    self.filteredSeries = response.data.results;
+                  })
+                  .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                  })
+                  this.movieName = '';
+                  self.arrayMovie= [];
+                  }, //-->end filtra
 
       // CALL MOVIES AND SERIES FROM API
       filterMovies(){
-        this.genera();
-        this.filtra();
+          this.genera();
+          this.filtra();
       },
 
-
-      // // SELECT MOVIES
+      // // FILTER MOVIES
       filtraFilm(){
-
-       
-        
-        // console.log('film filtrati' + this.filteredMovies);
-          // const filteredMovies = self.arrayMovie;
-
           if (this.selectMovies !== 'all' ){
             this.arrayMovie = this.arrayMovie.filter((element)=> {
               return element.genre_ids.includes(this.selectMovies)
@@ -243,34 +225,21 @@ const app = new Vue({
              else {
                this.arrayMovie = this.filteredMovies;
              }
-          // MODIFICARE QUI *********************
-          
-          
-          
-         
-        
-        // this.movieName = '';
-        }, //--> end genera()
+        }, //--> end filtraFilm()
       
-      // SELECT SERIES
+      // FILTER SERIES
       filtraSerie(){
-        
-          
           if (this.SelectSeries !== 'all'  ){
             this.arraySeries = this.arraySeries.filter(element=> element.genre_ids.includes(this.SelectSeries))
           } else {
             this.arraySeries = this.filteredSeries;
-          }
-          
-         
-      },
+          }         
+      }, //--> end filtraSerie()
 
-
-        // convert votes in stars
+        // CONVERT VOTES INTO STARS
       convertStar(vote_average){
         return Math.ceil(vote_average / 2);
       } //--> end convertStar()
-
 
     } //--> end methods
   

@@ -25,6 +25,18 @@ input[type=text]:focus{
 
 /* HEADER */
 
+.header{
+    align-items: center;
+    margin-top: 30px;
+    /* justify-content: center; */
+}
+
+@media screen and (max-width: 924px) {
+    .header{
+        justify-content: center;
+    }
+}
+
 .logo-header{
     margin-left: 50px;
     margin-right: 20px;
@@ -35,6 +47,13 @@ input[type=text]:focus{
     color: white;
     margin-left: 22px;
     margin-top: 22px;
+    display: none;
+}
+
+@media screen and (min-width: 726px) {
+    .select-container{
+        display: block;
+    }
 }
 
 .header{
@@ -75,10 +94,21 @@ input[type=text]:focus{
     padding: 5px;
     border-radius: 5px;
     margin-left: 10px;
+    display: none;
+}
+
+@media screen and (min-width: 539px){
+    .input-container>button{
+        display: inline-flex;
+    }
 }
 
 
 /* MAIN CONTENT */
+
+.popcorn{
+    max-width: 50px;
+}
 
 .main-content-container{
     flex-wrap: wrap;
@@ -108,7 +138,9 @@ input[type=text]:focus{
 .layover {
     width: 85%;
     height: 82%;
-    background-color: rgba(213, 235, 230, 0.9);
+    /* background-color:linear-gradient(0deg, black, white); */
+    /* background-color: linear-gradient(#e66465, #9198e5); */
+    /* background-image: linear-gradient(0deg, black, white); */
     position: absolute;
     top: 20px;
     left: 21px;
@@ -119,6 +151,8 @@ input[type=text]:focus{
     padding: 30px 30px;
     overflow-y: auto;
     padding-bottom: 50px;
+    background: hsla(0, 0%, 100%, 1);
+
 }
 
 .layover:hover {
