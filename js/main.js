@@ -217,6 +217,7 @@ const app = new Vue({
 
       // // FILTER MOVIES
       filtraFilm(){
+        this.arrayMovie = this.filteredMovies;
           if (this.selectMovies !== 'all' ){
             this.arrayMovie = this.arrayMovie.filter((element)=> {
               return element.genre_ids.includes(this.selectMovies)
@@ -229,6 +230,7 @@ const app = new Vue({
       
       // FILTER SERIES
       filtraSerie(){
+        this.arraySeries = this.filteredSeries;
           if (this.SelectSeries !== 'all'  ){
             this.arraySeries = this.arraySeries.filter(element=> element.genre_ids.includes(this.SelectSeries))
           } else {
